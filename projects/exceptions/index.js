@@ -59,7 +59,7 @@ function isSomeTrue(array, fn) {
   }
 
   for (const el of array) {
-    if (!fn(el)) {
+    if (fn(el)) {
       return true;
     }
   }
@@ -85,15 +85,13 @@ function returnBadArguments(fn, ...args) {
   const bad = [];
 
   for (const arg of args) {
-
-    try{
+    try {
       fn(arg);
     } catch {
       bad.push(arg);
     }
-
-    return bad;
   }
+    return bad;
 }
 
 /*
